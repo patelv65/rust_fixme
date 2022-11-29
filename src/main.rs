@@ -29,6 +29,18 @@ struct Color {
     blue: u8,
 }
 
+impl Display for Color {
+    // f is a buffer, this method must write the formatted string into it
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        let r = format!("{:X}", self.red);
+        let g = format!("{:X}", self.green);
+        let b = format!("{:X}", self.blue);
+
+        write!(f, "RGB ({}, {}, {}) 0x{:0>2}{:0>2}{:0>2}", 
+            self.red, self.green, self.blue, r, g, b)
+    }
+}
+
 fn main() {
     for city in [
         City { name: "Glassboro", lat: 39.702892, lon: -75.111839 },
