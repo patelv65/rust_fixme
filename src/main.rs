@@ -1,7 +1,7 @@
 use std::fmt::{self, Formatter, Display};
 
 /* Demonstrates printing of a user defined struct using println! macro.*/
-
+/// a type with fileds. City has name, latitide, longitude
 struct City {
     name: &'static str,
     // Latitude
@@ -22,6 +22,7 @@ impl Display for City {
     }
 }
 
+///type with fields 
 #[derive(Debug)]
 struct Color {
     red: u8,
@@ -29,13 +30,14 @@ struct Color {
     blue: u8,
 }
 
+//it is displaying the color similar to debug but display is for user-facing output
 impl Display for Color {
     // f is a buffer, this method must write the formatted string into it
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         let r = format!("{:X}", self.red);
         let g = format!("{:X}", self.green);
         let b = format!("{:X}", self.blue);
-
+    // `write!` is like `format!`, but it will write the formatted string into a buffer (the first argument)
         write!(f, "RGB ({}, {}, {}) 0x{:0>2}{:0>2}{:0>2}", 
             self.red, self.green, self.blue, r, g, b)
     }
