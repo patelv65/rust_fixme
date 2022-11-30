@@ -30,7 +30,7 @@ struct Color {
     blue: u8,
 }
 
-//it is displaying the color similar to debug but display is for user-facing output
+//it is displaying the color similar to debug but display is for user facing output.
 impl Display for Color {
     // f is a buffer, this method must write the formatted string into it
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
